@@ -5,6 +5,7 @@ $fn.trivia = function(){
         correct: 0,
         incorrect: 0
     };
+    trivia.count = 30;
     trivia.current = 0;
     trivia.questions =[{
         question: "?",
@@ -22,7 +23,7 @@ $fn.trivia = function(){
 
     trivia.ask = function {
         if (trivia.questions[trivia.current]) {
-            $("#timer").html("Time Remaining: " + "00:30" + " seconds");
+            $("#timer").html("Time Remaining: " + "00:30" + "trivia.count" + " seconds");
             var choicesArr = trivia.questions[trivia.current].choices;
             var buttonArr = [];
 
