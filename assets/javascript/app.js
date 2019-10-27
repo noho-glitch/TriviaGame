@@ -18,8 +18,21 @@ $fn.trivia = function(){
         question: "?3",
         choices: ["a", "b", "c", "d"],
         correct: 1
+    }];
+
+    trivia.ask = function {
+        if (trivia.questions[trivia.current]) {
+            $("#timer").html("Time Remaining: " + "00:30" + " seconds");
+            var choicesArr = trivia.questions[trivia.current].choices;
+            var buttonArr = [];
+
+            for (var i = 0; i < choicesArr.length; i++){
+                var button = $("<button>");
+                button.text(choicesArr[i]);
+                $("#abcd_div").append(button);
+            }
+        }
     }
-]
 $("start_button").click(function(){
     $(this).hide();
     $('.result').remove();
