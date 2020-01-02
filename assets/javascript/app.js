@@ -11,7 +11,8 @@ $(document).ready(function() {
       question: "Where did the fairy Navi get her name?",
       choices: ["Navigate", "North American Vampire, Inc", "Navel", "Navy"],
       correct: 0,
-      info: "Navi the navi-gating fairy was originally designed as an upside-down triangle targeting system, but she eventually was turned into a fairy that helps Link find his way.",
+      info:
+        "Navi the navi-gating fairy was originally designed as an upside-down triangle targeting system, but she eventually was turned into a fairy that helps Link find his way.",
       image:
         "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v04-ZeldaOcarina.0290fa98.jpg"
     },
@@ -24,7 +25,8 @@ $(document).ready(function() {
         "10 Bells a day for life"
       ],
       correct: 1,
-      info: "With the resort island’s online features, players with internet access can go on island tours with other players, compete with them to win in-game medals, and more. Grams occasionally sells a membership to Club Tortimer for 50 medals.",
+      info:
+        "With the resort island’s online features, players with internet access can go on island tours with other players, compete with them to win in-game medals, and more. Grams occasionally sells a membership to Club Tortimer for 50 medals.",
       image:
         "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v03-AnimalCrossing.0290fa98.jpg"
     },
@@ -33,7 +35,8 @@ $(document).ready(function() {
         "If Player 1 is controlling the green Luigi…then who’s controlling the other ones??!!",
       choices: ["Polterpup", "Player 2", "King Boo", "Players 2-4"],
       correct: 3,
-      info: "Up to 4 players can team up to tackle the ScareScraper, a haunted building teeming with ghostly challenges. There are 3 spook-tacular multiplayer modes, including Rush mode, where players try to race to the top of the tower before time runs out.",
+      info:
+        "Up to 4 players can team up to tackle the ScareScraper, a haunted building teeming with ghostly challenges. There are 3 spook-tacular multiplayer modes, including Rush mode, where players try to race to the top of the tower before time runs out.",
       image:
         "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v03-LuigisMansion.0290fa98.jpg"
     },
@@ -46,7 +49,8 @@ $(document).ready(function() {
         "One is proposing to the other"
       ],
       correct: 3,
-      info: "In Tomodachi Life, the player can help a Mii propose to his or her sweetheart at the fireworks show, the train station, the fancy restaurant, or on the ferris wheel at the amusement park.",
+      info:
+        "In Tomodachi Life, the player can help a Mii propose to his or her sweetheart at the fireworks show, the train station, the fancy restaurant, or on the ferris wheel at the amusement park.",
       image:
         "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v02-TomodachiLife.0290fa98.jpg"
     },
@@ -59,7 +63,8 @@ $(document).ready(function() {
         "Rescuing a cat from a tree"
       ],
       correct: 0,
-      info: "The rookie cop’s very first assignment? Hunt down some sweet, tasty donuts for his fellow officers—very serious business!",
+      info:
+        "The rookie cop’s very first assignment? Hunt down some sweet, tasty donuts for his fellow officers—very serious business!",
       image:
         "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v03.0290fa98.jpg"
     }
@@ -102,12 +107,11 @@ $(document).ready(function() {
       answers.attr("data-value", i);
       answers.appendTo("#gameDiv");
     }
-    
-        var imageUrl = $("<img>");
-        imageUrl.attr("src", questions[currentQuestion].image)
-        imageUrl.addClass("center")
-        imageUrl.appendTo("#imageDiv")
-    
+
+    var imageUrl = $("<img>");
+    imageUrl.attr("src", questions[currentQuestion].image);
+    imageUrl.addClass("center border");
+    imageUrl.appendTo("#imageDiv");
 
     $(".choiceBtn").on("click", function() {
       clearInterval(timer);
@@ -123,7 +127,12 @@ $(document).ready(function() {
         $("#gameDiv").empty();
         $("#imageDiv").empty();
         userGuess = "";
-        $("#answerDiv").html("<h1>Incorrect!</h1><br>" + "<h3>"+ questions[currentQuestion].info +"</h3>");
+        $("#answerDiv").html(
+          "<h1>Correct!</h1><br>" +
+            "<h3>" +
+            questions[currentQuestion].info +
+            "</h3>"
+        );
         $("#answerDiv").html();
         setTimeout(nextQ, 5000);
       } else {
@@ -132,7 +141,12 @@ $(document).ready(function() {
         $("#gameDiv").empty();
         $("#imageDiv").empty();
         userGuess = "";
-        $("#answerDiv").html("<h1>Incorrect!</h1><br>" + "<h3>"+ questions[currentQuestion].info +"</h3>");
+        $("#answerDiv").html(
+          "<h1>Incorrect!</h1><br>" +
+            "<h3>" +
+            questions[currentQuestion].info +
+            "</h3>"
+        );
         setTimeout(nextQ, 5000);
       }
       console.log("correct count: " + correctAnswers);
@@ -143,7 +157,6 @@ $(document).ready(function() {
     $("#answerDiv").empty();
     $("#gameDiv").empty();
     questions.splice(0, 1);
-
 
     if (questions.length === 0) {
       endGame();
@@ -163,6 +176,7 @@ $(document).ready(function() {
       );
       var reset = $("<button>");
       reset.attr("id", "resetBtn");
+      reset.addClass("btn-danger")
       reset.html("Reset");
       $("#resultsDiv").append(reset);
     }

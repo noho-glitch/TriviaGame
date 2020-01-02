@@ -17,6 +17,13 @@ button {
     width: 80%;
 }
 
+.border {
+    border-radius: 1rem;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: crimson;
+}
+
 #logo{
     display: block;
     margin-left: auto;
