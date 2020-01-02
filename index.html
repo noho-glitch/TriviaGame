@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <title>Document</title>
-</head>
-<body>
-        <div id="startDiv">
-                <button id="startGame">
-                  Start Game
-                </button>
-              </div>
-              
-              <div id="gameDiv">
-              </div>
+  </head>
+  <body>
+    <div class="container">
+      <div id="startDiv">
+        <img id="logo" src="assets/images/nintendo.png"/>
+        <h2>Trivia Game</h2>
+        <button id="startGame" class="btn-danger">
+          Start Game
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div id="imageDiv"></div>
+    </div>
+    <div id="gameContainer" class="container">
+      <div id="gameDiv"></div>
 
-              <div id="answerDiv">
-                
-              </div>
-            
-              <div id="resultsDiv">
-                <button onClick="window.location.reload();">Reset</button>
+      <div id="answerDiv"></div>
 
-              </div>
-
-</body>
+      <div id="resultsDiv"></div>
+    </div>
+  </body>
 </html>

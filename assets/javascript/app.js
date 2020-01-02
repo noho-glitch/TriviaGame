@@ -12,7 +12,7 @@ $(document).ready(function() {
       choices: ["Navigate", "North American Vampire, Inc", "Navel", "Navy"],
       correct: 0,
       image:
-        "Where dihttps://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v04-ZeldaOcarina.0290fa98.jpgd the fairy Navi get her name?"
+        "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/2x1_NintendoSelectsTrivia_Questions_v04-ZeldaOcarina.0290fa98.jpg"
     },
     {
       question: "Which benefit is included with a Club Tortimer membership?",
@@ -61,7 +61,7 @@ $(document).ready(function() {
   ];
 
   $("#startGame").on("click", function() {
-    $("#startGame").hide();
+    $("#startDiv").hide();
     displayQ();
   });
 
@@ -78,6 +78,7 @@ $(document).ready(function() {
         clearInterval(countDown);
         incorrectAnswers++;
         $("#gameDiv").empty();
+        $("#imageDiv").empty();
         userGuess = "";
         $("#answerDiv").html("<h2>Incorrect! You Ran Out of Time!</h2>");
         setTimeout(nextQ, 2000);
@@ -92,10 +93,17 @@ $(document).ready(function() {
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
       var answers = $("<button>");
       answers.html(questions[currentQuestion].choices[i]);
-      answers.addClass("choiceBtn");
+      answers.addClass("choiceBtn btn-danger");
       answers.attr("data-value", i);
       answers.appendTo("#gameDiv");
     }
+    
+        var imageUrl = $("<img>");
+        imageUrl.attr("src", questions[currentQuestion].image)
+        imageUrl.addClass("center")
+        imageUrl.appendTo("#imageDiv")
+    
+
     $(".choiceBtn").on("click", function() {
       clearInterval(timer);
 
@@ -108,6 +116,7 @@ $(document).ready(function() {
         clearInterval(countDown);
         correctAnswers++;
         $("#gameDiv").empty();
+        $("#imageDiv").empty();
         userGuess = "";
         $("#answerDiv").html("<h2>Correct!</h2>");
         setTimeout(nextQ, 2000);
@@ -115,6 +124,7 @@ $(document).ready(function() {
         clearInterval(countDown);
         incorrectAnswers++;
         $("#gameDiv").empty();
+        $("#imageDiv").empty();
         userGuess = "";
         $("#answerDiv").html("<h2>Incorrect!</h2>");
         setTimeout(nextQ, 2000);
