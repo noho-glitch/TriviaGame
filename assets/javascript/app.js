@@ -51,14 +51,30 @@ $(document).ready(function () {
 
         if (userGuess === correct) {
             correctAnswers++;
+            $("#gameDiv").empty();
+            userGuess="";
+            $("#answerDiv").html("<h2>Correct!</h2>");
+            setTimeout(nextQ, 2000);
         }
-        if (userGuess !== correct) {
+        else{
             incorrectAnswers++;
+            $("#gameDiv").empty();
+            userGuess="";
+            $("#answerDiv").html("<h2>Incorrect!</h2>");
+            setTimeout(nextQ, 2000);
         }
         console.log("correct count: " + correctAnswers)
         console.log("incorrect count: " + incorrectAnswers)
-
     });
-
+    }
+    function nextQ() {
+        $("#answerDiv").empty();
+        $("#gameDiv").empty();
+        questions.splice(0, 1);
+        if (questions.length === 0) {
+            endGame()
+        } else {            
+        displayQ();
+        }
     }
 }) 
