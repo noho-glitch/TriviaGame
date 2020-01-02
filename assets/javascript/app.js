@@ -1,15 +1,17 @@
-$fn.trivia = function(){
-    var trivia = this;
-    trivia.userPick = null;
-    trivia.answers = {
-        correct: 0,
-        incorrect: 0
-    };
-    trivia.count = 30;
-    trivia.current = 0;
-    trivia.questions =[{
+var timer = 10;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var currentQuestion = 0;
+
+
+
+
+$(document).ready(function () {
+
+
+   var questions = [{
         question: "?",
-        choices: ["a","b","c","d"],
+        choices: ["a", "b", "c", "d"],
         correct: 0
     }, {
         question: "?2",
@@ -21,22 +23,42 @@ $fn.trivia = function(){
         correct: 1
     }];
 
-    trivia.ask = function {
-        if (trivia.questions[trivia.current]) {
-            $("#timer").html("Time Remaining: " + "00:30" + "trivia.count" + " seconds");
-            var choicesArr = trivia.questions[trivia.current].choices;
-            var buttonArr = [];
 
-            for (var i = 0; i < choicesArr.length; i++){
-                var button = $("<button>");
-                button.text(choicesArr[i]);
-                $("#abcd_div").append(button);
-            }
+    $("#startGame").on("click", function () {
+        $("#startGame").hide();
+        displayQ()
+    })
+
+
+    function displayQ() {
+        var question = $("<h2>")
+        question.appendTo("#gameDiv")
+        question.html("<h1>" + questions[currentQuestion].question + "</h1>");
+
+        for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+            var answers = $("<button>");
+            answers.html(questions[currentQuestion].choices[i]);
+            answers.addClass("choiceBtn");
+            answers.attr("data-value", i)
+            answers.appendTo("#gameDiv");
+
+    };
+    $(".choiceBtn").on("click", function() {
+        correct = questions[currentQuestion].correct
+        userGuess = parseInt($(this).attr("data-value"));
+        console.log(correct)
+        console.log("user" + userGuess)
+
+        if (userGuess === correct) {
+            correctAnswers++;
         }
+        if (userGuess !== correct) {
+            incorrectAnswers++;
+        }
+        console.log("correct count: " + correctAnswers)
+        console.log("incorrect count: " + incorrectAnswers)
+
+    });
+
     }
-$("start_button").click(function(){
-    $(this).hide();
-    $('.result').remove();
-    $('div').html('');
-})
-};
+}) 
