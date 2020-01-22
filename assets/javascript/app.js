@@ -127,13 +127,15 @@ $(document).ready(function() {
         $("#gameDiv").empty();
         $("#imageDiv").empty();
         userGuess = "";
-        $("#answerDiv").html(
+        
+        $("#answerDiv").show().html(
           "<h1>Correct!</h1><br>" +
             "<h3>" +
             questions[currentQuestion].info +
             "</h3>"
         );
         $("#answerDiv").html();
+
         setTimeout(nextQ, 5000);
       } else {
         clearInterval(countDown);
@@ -141,7 +143,7 @@ $(document).ready(function() {
         $("#gameDiv").empty();
         $("#imageDiv").empty();
         userGuess = "";
-        $("#answerDiv").html(
+        $("#answerDiv").show().html(
           "<h1>Incorrect!</h1><br>" +
             "<h3>" +
             questions[currentQuestion].info +
@@ -154,7 +156,7 @@ $(document).ready(function() {
     });
   }
   function nextQ() {
-    $("#answerDiv").empty();
+    $("#answerDiv").empty().hide();
     $("#gameDiv").empty();
     questions.splice(0, 1);
 
