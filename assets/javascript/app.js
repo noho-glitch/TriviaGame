@@ -76,6 +76,8 @@ $(document).ready(function() {
   });
 
   function displayQ() {
+    $("#gameDiv").show();
+
     var timer = 15;
     var timerDiv = $("<div>");
     timerDiv.html("<h2>" + timer + "</h2>");
@@ -87,7 +89,7 @@ $(document).ready(function() {
       if (timer === 0) {
         clearInterval(countDown);
         incorrectAnswers++;
-        $("#gameDiv").empty();
+        $("#gameDiv").hide().empty();
         $("#imageDiv").empty();
         userGuess = "";
         $("#answerDiv").html("<h2>Incorrect! You Ran Out of Time!</h2>");
@@ -124,7 +126,7 @@ $(document).ready(function() {
       if (userGuess === correct) {
         clearInterval(countDown);
         correctAnswers++;
-        $("#gameDiv").empty();
+        $("#gameDiv").hide().empty();
         $("#imageDiv").empty();
         userGuess = "";
         
@@ -140,7 +142,7 @@ $(document).ready(function() {
       } else {
         clearInterval(countDown);
         incorrectAnswers++;
-        $("#gameDiv").empty();
+        $("#gameDiv").hide().empty();
         $("#imageDiv").empty();
         userGuess = "";
         $("#answerDiv").show().html(
@@ -157,7 +159,7 @@ $(document).ready(function() {
   }
   function nextQ() {
     $("#answerDiv").empty().hide();
-    $("#gameDiv").empty();
+    $("#gameDiv").show().empty();
     questions.splice(0, 1);
 
     if (questions.length === 0) {
@@ -166,7 +168,8 @@ $(document).ready(function() {
       displayQ();
     }
     function endGame() {
-      $("#answerDiv").empty();
+      $("#answerDiv").hide().empty();
+      $("#gameDiv").hide().empty();
       $("#resultsDiv").show();
       $("#resultsDiv").html(
         "<h2>Thanks for playing!</h2>" +

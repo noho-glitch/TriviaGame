@@ -30,7 +30,20 @@ button {
   margin-right: auto;
   width: 80%;
 }
-
+#gameDiv {
+    display: none;
+    border-radius: 25px;
+    border: 20px double #e60012;
+    background: #ffffff;
+    padding: 20px;
+    width: 75%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #answerDiv {
   display: none;
   border-radius: 25px;
@@ -45,3 +58,18 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
+
+#resultsDiv {
+    display: none;
+    border-radius: 25px;
+    border: 20px double #e60012;
+    background: #ffffff;
+    padding: 20px;
+    width: 75%;
+    height: auto;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
