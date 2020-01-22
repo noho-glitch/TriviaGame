@@ -31,23 +31,27 @@ button {
   width: 80%;
 }
 #gameDiv {
-    display: none;
-    border-radius: 25px;
-    border: 20px double #e60012;
-    background: #ffffff;
-    padding: 20px;
-    width: 75%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+  display: none;
+  border-radius: 25px;
+  border-color: #e60012;
+  border-style: solid;
+  border-width: 20px;
+  background: #ffffff;
+  padding: 20px;
+  width: 75%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #answerDiv {
   display: none;
   border-radius: 25px;
-  border: 20px double #e60012;
+  border-color: #e60012;
+  border-style: solid;
+  border-width: 20px;
   background: #ffffff;
   padding: 20px;
   width: 75%;
@@ -60,16 +64,18 @@ button {
 }
 
 #resultsDiv {
-    display: none;
-    border-radius: 25px;
-    border: 20px double #e60012;
-    background: #ffffff;
-    padding: 20px;
-    width: 75%;
-    height: auto;
-    margin-top: 10%;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  display: none;
+  border-radius: 25px;
+  border-color: #e60012;
+  border-style: solid;
+  border-width: 20px;
+  background: #ffffff;
+  padding: 20px;
+  width: 75%;
+  height: auto;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
